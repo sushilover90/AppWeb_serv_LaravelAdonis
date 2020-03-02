@@ -20,4 +20,4 @@ mix.scripts(["node_modules/now-ui-dashboard/assets/js/plugins/perfect-scrollbar.
     "node_modules/now-ui-dashboard/assets/js/plugins/bootstrap-notify.js",
     "node_modules/now-ui-dashboard/assets/js/now-ui-dashboard.js"], 'public/js/ui.js');
 
-mix.styles(["node_modules/now-ui-dashboard/assets/css/now-ui-dashboard.css"],'public/css/ui.css');
+mix.styles(["node_modules/now-ui-dashboard/assets/css/now-ui-dashboard.min.css"],'public/css/ui.css');
