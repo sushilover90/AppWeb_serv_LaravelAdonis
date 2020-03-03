@@ -16,3 +16,5 @@ public/js/*.js
 public/*.css
 public/*.js
 mix-manifest.json
+package-lock.json
+package.json
