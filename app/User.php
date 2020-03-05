@@ -45,10 +45,28 @@ class User extends Authenticatable
         return $this->api_token;
     }
 
-    public function getJWTToken()
+    public function getJwtToken()
     {
         return $this->jwt_token;
     }
+
+    public function getRefreshToken()
+    {
+        return $this->refresh_token;
+    }
+
+    public function setAdonisTokens($jwt_token,$refresh_token)
+    {
+        $this->jwt_token = $jwt_token;
+        $this->refresh_token = $refresh_token;
+        if($this->save())
+        {
+            return response()->json(['message'=>'Exito','jwt_token'=>$this->getJwtToken(),'refresh_token'=>$this->getRefreshToken()],200);
+        }
+        return response()->json(['message'=>'Error, intentelo de nuevo'],401);
+
+    }
+
 
     public function getShodanToken()
     {

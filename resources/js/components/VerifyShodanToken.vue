@@ -65,13 +65,12 @@
 
     function ShodanToken(self, response, opcion)
     {
-        let propiedad = 'generarShodanToken';
-        let texto = 'generar token shodan';
+        let propiedad = 'ingresarShodanToken';
+        let texto = 'ingresar token shodan';
         let url = '/token/shodan/set';
         if(opcion===1) {
             propiedad = 'cambiarShodanToken';
             texto = 'cambiar token shodan';
-            url = '/api/token/shodan/set';
         }
         $('#tableShodanToken tbody').append('<tr><td><input class="btn btn-block bg-primary" type="button" id="'+propiedad+'" value="'+texto.toUpperCase()+'"></td></tr>');
         $('#'+propiedad).on('click',function () {

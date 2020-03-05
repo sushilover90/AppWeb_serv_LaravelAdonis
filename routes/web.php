@@ -16,12 +16,18 @@ Route::get('/',function (){
    return redirect('/login');
 });
 
-//Route::get('/token/laravel/get','Usercontroller@getLaravelToken')->middleware('auth');
+
 Route::get('/token/laravel/get','Usercontroller@getLaravelToken')->middleware('auth');
 Route::get('/token/laravel/set','Usercontroller@setLaravelToken')->middleware('auth');
+
 Route::get('/token/shodan/get','Usercontroller@getShodanToken')->middleware('auth');
 Route::post('/token/shodan/set','Usercontroller@setShodanToken')->middleware('auth');
+
+Route::get('/token/adonis/get','Usercontroller@getAdonisTokens')->middleware('auth');
+Route::post('/token/adonis/set','Usercontroller@setAdonisTokens')->middleware('auth');
+
 Route::get('/user/adonis/register','ViewsController@adonisUserRegister')->middleware('auth');
+
 Route::post('/user/adonis/register/request','HttpRequests@adonisCreateUser')->middleware('auth');
 
 

@@ -15,7 +15,7 @@
 <div class="wrapper ">
 
     <!--data-color="black"-->
-    <div class="sidebar" data-color="black">
+    <div class="sidebar" data-color="orange">
         <!--
             Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
         -->
@@ -42,41 +42,24 @@
                     </a>
                 </li>
 
-                <li id="liIcons">
-                    <a href="/icons">
+                {{--<li>
+                    @if(Auth::user()->jwt_token===null)
+                        <a href="/user/adonis/register">
 
-                        {{--                        <i class="now-ui-icons education_atom"></i>--}}
+                            --}}{{--                        <i class="now-ui-icons users_single-02"></i>--}}{{--
 
-                        <p>Icons</p>
-                    </a>
-                </li>
+                            <p>crear usuario adonis</p>
+                        </a>
+                    @else
+                        <a href="/user/adonis/login">
 
-                <li>
-                    <a href="./map.html">
+                            --}}{{--                        <i class="now-ui-icons users_single-02"></i>--}}{{--
 
-                        {{--                        <i class="now-ui-icons location_map-big"></i>--}}
+                            <p>login usuario adonis</p>
+                        </a>
+                    @endif
+                </li>--}}
 
-                        <p>Maps</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="./notifications.html">
-
-                        {{--                        <i class="now-ui-icons ui-1_bell-53"></i>--}}
-
-                        <p>Notifications</p>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="./user.html">
-
-                        {{--                        <i class="now-ui-icons users_single-02"></i>--}}
-
-                        <p>User Profile</p>
-                    </a>
-                </li>
             </ul>
             <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
                 <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;">
@@ -129,9 +112,9 @@
                 </div>
             </div>
         </nav>
-        <div class="content">
+        <div class="">
             <div class="row">
-                <div class="ml-3" style="margin-top: 7vh;">
+                <div class="ml-5" style="margin-top: 10vh;">
                     @yield('content')
                 </div>
             </div>

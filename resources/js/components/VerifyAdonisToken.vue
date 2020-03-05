@@ -1,11 +1,20 @@
 <template>
-    <table id="tableLaravelToken" class="table table-dark table-striped table-bordered">
+    <table id="tableAdonisToken" class="table table-dark table-striped table-bordered">
         <thead>
         <h4>Adonis token status</h4>
         </thead>
-        <tbody>
+        <tbody id="tbodyAdonisTokenTable">
         <tr>
-            <td>{{adonis_token}}</td>
+            <td>Tu jwt token es:</td>
+        </tr>
+        <tr>
+            <td>{{jwt_token}}</td>
+        </tr>
+        <tr>
+            Tu refresh token es:
+        </tr>
+        <tr>
+            <td>{{refresh_token}}</td>
         </tr>
         </tbody>
     </table>
@@ -15,7 +24,9 @@
     export default {
         data(){
             return {
-                adonis_token : null,
+                jwt_token : null,
+                refresh_token: null
+
             }
         },
         mounted() {
@@ -23,58 +34,35 @@
             // <meta name="csrf-token" content="{{ csrf_token() }}">
             // alert($('meta[name="csrf-token"]').attr('content'));
             let self = this;
-            // sweetAlert.swal()
-            // getLaravelToken(self);
+            getJwtToken(self);
         }
     }
 
-    /*function getLaravelToken(self) {
-        axios.get('/token/laravel/get').then(function (response){
+    function getJwtToken(self) {
+        axios.get('/token/adonis/get').then(function (response) {
             console.log(response.data);
-            if(response.data===''||response.data===null)
+            if(response.data.jwt_token === null || response.data.jwt_token === '')
             {
-                self.laravel_token = "No tienes token de laravel aun.";
-                LaravelToken(self,response,null);
+                self.jwt_token = 'No tienes jwt token de Adonis aun.';
+                self.refresh_token = 'No tienes refresh token de Adonis aun.';
+                $('#tbodyAdonisTokenTable').prepend('<tr><td><p>No cuentas con un usuario en adonis, por tanto careces de tokens en adonis. Debes registrarte en adonis para poder usar la api.</p></td></tr>');
+                $('#tableAdonisToken tbody').append('<tr><td><input type="button" id="crearUsuarioAdonis" class="btn btn-block bg-primary" value="CREAR USUARIO PARA ADONIS"></td></tr>');
+                $('#crearUsuarioAdonis').on('click', function () {
+                    window.location = '/user/adonis/register';
+                });
             }
             else
             {
-                LaravelToken(self,response,1);
-                self.laravel_token = 'Tu token laravel es: ' + response.data;
+                self.jwt_token = response.data.jwt_token;
+                self.refresh_token = response.data.refresh_token;
+                $('#tableAdonisToken tbody').append('<tr><td><input type="button" id="cambiarAdonisTokens" class="btn btn-block bg-primary" value="CAMBIAR TOKENS PARA ADONIS"></td></tr>');
+                $('#cambiarAdonisTokens').on('click',function () {
+                    alert('heheeeee');
+                });
             }
-        }).catch(function (response){
-
+        }).catch(function (response) {
+            console.log(response);
         });
-    } // function getLaravelToken(self) END
-
-    function deleteMessage() {
-        setTimeout(function () {
-            $('#tfooterLaravelToken').remove()
-        }, 1000);
     }
-
-    function LaravelToken(self, response, opcion)
-    {
-        let propiedad = 'generarLaravelToken';
-        let texto = 'generar token laravel';
-        let url = '/token/laravel/set';
-        if(opcion===1) {
-            propiedad = 'cambiarLaravelToken';
-            texto = 'cambiar token laravel';
-            url = '/api/token/laravel/set';
-        }
-        localStorage.laravel_token = response.data;
-        $('#opcionesSidebar').append('<li class="" id="'+propiedad+'"><a><p>'+texto+'</p></a></li>');
-        $('#'+propiedad).on('click',function () {
-            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.laravel_token;
-            axios.get(url).then(function (response) {
-                self.laravel_token = 'Tu token de laravel es: ' + response.data.new_token;
-                localStorage.laravel_token = response.data.new_token;
-                $('#tableLaravelToken').append('<tfooter id="tfooterLaravelToken"><tr><td>Token cambiado</td></tr></tfooter>');
-                deleteMessage();
-            }).catch(function (response) {
-                console.log(response);
-            });
-        });
-    }*/
 
 </script>

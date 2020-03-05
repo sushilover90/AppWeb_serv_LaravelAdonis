@@ -26,11 +26,11 @@
             // <meta name="csrf-token" content="{{ csrf_token() }}">
             // alert($('meta[name="csrf-token"]').attr('content'));
             let self = this;
-            getLaravelToken(self);
+            getJwtToken(self);
         }
     }
 
-    function getLaravelToken(self)
+    function getJwtToken(self)
     {
         axios.get('/token/laravel/get').then(function (response){
             console.log(response.data);
@@ -64,10 +64,9 @@
         if(opcion===1) {
             propiedad = 'cambiarLaravelToken';
             texto = 'cambiar token laravel';
-            url = '/api/token/laravel/set';
         }
         localStorage.laravel_token = response.data;
-        $('#opcionesSidebar').append('<li class="" id="'+propiedad+'"><a><p>'+texto+'</p></a></li>');
+        $('#tableLaravelToken tbody').append('<tr><td><input class="btn btn-block bg-primary" type="button" id="'+propiedad+'" value="'+texto.toUpperCase()+'"></td></tr>');
         $('#'+propiedad).on('click',function () {
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.laravel_token;
             axios.get(url).then(function (response) {

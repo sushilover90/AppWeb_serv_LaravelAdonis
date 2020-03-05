@@ -31,9 +31,18 @@ class UserController extends Controller
 
     public function setShodanToken(Request $request)
     {
-//        return 1;
-//        return $request;
         return $request->user()->setShodanToken($request->shodan_token);
     }
+
+    public function getAdonisTokens(Request $request)
+    {
+        return ['jwt_token'=>$request->user()->getJwtToken(),'refresh_token'=>$request->user()->getRefreshToken()];
+    }
+
+    public function setAdonisTokens(Request $request)
+    {
+        return $request->user()->setAdonisTokens($request->jwt_token,$request->refresh_token);
+    }
+
 
 }

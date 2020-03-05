@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('api_token')->nullable()->default(null);
             $table->string('jwt_token')->nullable()->default(null);
+            $table->string('refresh_token')->nullable()->default(null);
             $table->string('shodan_token')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();

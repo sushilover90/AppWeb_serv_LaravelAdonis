@@ -2,9 +2,7 @@
 
 @section('content')
     <div id="app">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
+                {{--<div class="col-12">
                     <verify-laravel-token>
 
                     </verify-laravel-token>
@@ -23,7 +21,8 @@
 
                     </verify-shodan-token>
                 </div>
-            </div>
+            </div>--}}
+            <user-stats></user-stats>
         </div>
     </div>
 @endsection

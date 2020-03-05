@@ -20,6 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('user-stats', require('./components/UserGlobalStats.vue').default);
 Vue.component('verify-laravel-token', require('./components/VerifyLaravelToken.vue').default);
 Vue.component('verify-shodan-token', require('./components/VerifyShodanToken.vue').default);
 Vue.component('verify-adonis-token', require('./components/VerifyAdonisToken.vue').default);
