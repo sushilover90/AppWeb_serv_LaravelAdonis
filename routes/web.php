@@ -11,6 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('test');
+Route::get('/home','ViewsController@index')->middleware('auth');
+Route::get('/',function (){
+   return redirect('/login');
 });
+
+//Route::get('/token/laravel/get','Usercontroller@getLaravelToken')->middleware('auth');
+Route::get('/token/laravel/get','Usercontroller@getLaravelToken')->middleware('auth');
+Route::get('/token/laravel/set','Usercontroller@setLaravelToken')->middleware('auth');
+Route::get('/token/shodan/get','Usercontroller@getShodanToken')->middleware('auth');
+Route::post('/token/shodan/set','Usercontroller@setShodanToken')->middleware('auth');
+Route::get('/user/adonis/register','ViewsController@adonisUserRegister')->middleware('auth');
+Route::post('/user/adonis/register/request','HttpRequests@adonisCreateUser')->middleware('auth');
+
+
+/*Route::get('/',function (){
+   return redirect('/home');
+});*/
+
+Auth::routes();
+
+/*Route::get('/home', 'HomeController@index')->name('home');*/

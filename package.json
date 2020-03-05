@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "now-ui-dashboard": "^1.0.1"
+        "now-ui-dashboard": "^1.0.1",
+        "sweetalert2": "^9.8.2"
     }
 }

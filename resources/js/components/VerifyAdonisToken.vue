@@ -1,0 +1,80 @@
+<template>
+    <table id="tableLaravelToken" class="table table-dark table-striped table-bordered">
+        <thead>
+        <h4>Adonis token status</h4>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{adonis_token}}</td>
+        </tr>
+        </tbody>
+    </table>
+</template>
+
+<script>
+    export default {
+        data(){
+            return {
+                adonis_token : null,
+            }
+        },
+        mounted() {
+            // axios.defaults.headers.common['Authorization'] = '';
+            // <meta name="csrf-token" content="{{ csrf_token() }}">
+            // alert($('meta[name="csrf-token"]').attr('content'));
+            let self = this;
+            // sweetAlert.swal()
+            // getLaravelToken(self);
+        }
+    }
+
+    /*function getLaravelToken(self) {
+        axios.get('/token/laravel/get').then(function (response){
+            console.log(response.data);
+            if(response.data===''||response.data===null)
+            {
+                self.laravel_token = "No tienes token de laravel aun.";
+                LaravelToken(self,response,null);
+            }
+            else
+            {
+                LaravelToken(self,response,1);
+                self.laravel_token = 'Tu token laravel es: ' + response.data;
+            }
+        }).catch(function (response){
+
+        });
+    } // function getLaravelToken(self) END
+
+    function deleteMessage() {
+        setTimeout(function () {
+            $('#tfooterLaravelToken').remove()
+        }, 1000);
+    }
+
+    function LaravelToken(self, response, opcion)
+    {
+        let propiedad = 'generarLaravelToken';
+        let texto = 'generar token laravel';
+        let url = '/token/laravel/set';
+        if(opcion===1) {
+            propiedad = 'cambiarLaravelToken';
+            texto = 'cambiar token laravel';
+            url = '/api/token/laravel/set';
+        }
+        localStorage.laravel_token = response.data;
+        $('#opcionesSidebar').append('<li class="" id="'+propiedad+'"><a><p>'+texto+'</p></a></li>');
+        $('#'+propiedad).on('click',function () {
+            axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.laravel_token;
+            axios.get(url).then(function (response) {
+                self.laravel_token = 'Tu token de laravel es: ' + response.data.new_token;
+                localStorage.laravel_token = response.data.new_token;
+                $('#tableLaravelToken').append('<tfooter id="tfooterLaravelToken"><tr><td>Token cambiado</td></tr></tfooter>');
+                deleteMessage();
+            }).catch(function (response) {
+                console.log(response);
+            });
+        });
+    }*/
+
+</script>

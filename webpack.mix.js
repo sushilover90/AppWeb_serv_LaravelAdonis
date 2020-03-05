@@ -21,3 +21,8 @@ mix.scripts(["node_modules/now-ui-dashboard/assets/js/plugins/perfect-scrollbar.
     "node_modules/now-ui-dashboard/assets/js/now-ui-dashboard.js"], 'public/js/ui.js');
 
 mix.styles(["node_modules/now-ui-dashboard/assets/css/now-ui-dashboard.min.css"],'public/css/ui.css');
+
+
+mix.scripts(["node_modules/sweetalert2/dist/sweetalert2.all.min.js"], 'public/js/sweetalert2.js');
+
+mix.styles(["node_modules/sweetalert2/dist/sweetalert2.min.css"],'public/css/sweetalert2.css');
