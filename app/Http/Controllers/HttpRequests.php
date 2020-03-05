@@ -32,7 +32,31 @@ class HttpRequests extends Controller
             return response()->json(['message'=>'Error','error'=>$e],401);
         }
 
+    }
 
+    public function protocols(Request $request)
+    {
+        $client = new Client(['base_url'=>'http://localhost:3333','timeout' => 5.0,
+            'verify' => false]);
+        try {
+
+
+            $response = $client->request('GET', 'http://localhost:3333/protocols', [
+                'headers'=> [
+                    'Authorization' => 'Bearer '.$request->user()->getJwtToken(),
+                    'shodan_token' => $request->user()->getShodanToken()
+                ]
+            ]);
+
+            $datos = json_decode($response->getBody());
+
+            return response()->json(['message'=>'Exito','adonis_response'=>$datos],200);
+
+        }
+        catch (RequestException $e)
+        {
+            return response()->json(['message'=>'Error','error'=>$e],401);
+        }
     }
 
 }

@@ -55,6 +55,8 @@
             {
                 self.jwt_token = response.data.jwt_token;
                 self.refresh_token = response.data.refresh_token;
+                localStorage.jwt_token = self.jwt_token;
+                localStorage.refresh_token = self.refresh_token;
                 $('#tableAdonisToken tbody').append('<tr><td><input type="button" id="cambiarAdonisTokens" class="btn btn-block bg-primary" value="CAMBIAR TOKENS PARA ADONIS"></td></tr>');
                 $('#cambiarAdonisTokens').on('click',function () {
                     alert('heheeeee');

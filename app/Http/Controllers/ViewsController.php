@@ -18,4 +18,9 @@ class ViewsController extends Controller
         return view('custom_views/adonisUserRegister');
     }
 
+    public function protocols()
+    {
+        return view('custom_views/protocols');
+    }
+
 }

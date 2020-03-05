@@ -27,6 +27,7 @@ Route::get('/token/adonis/get','Usercontroller@getAdonisTokens')->middleware('au
 Route::post('/token/adonis/set','Usercontroller@setAdonisTokens')->middleware('auth');
 
 Route::get('/user/adonis/register','ViewsController@adonisUserRegister')->middleware('auth');
+Route::get('/shodan/protocols','ViewsController@protocols')->middleware('auth');
 
 Route::post('/user/adonis/register/request','HttpRequests@adonisCreateUser')->middleware('auth');
 

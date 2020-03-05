@@ -25,6 +25,7 @@ Vue.component('verify-laravel-token', require('./components/VerifyLaravelToken.v
 Vue.component('verify-shodan-token', require('./components/VerifyShodanToken.vue').default);
 Vue.component('verify-adonis-token', require('./components/VerifyAdonisToken.vue').default);
 Vue.component('create-adonis-user', require('./components/CreateAdonisUser.vue').default);
+Vue.component('protocols', require('./components/Protocols.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
