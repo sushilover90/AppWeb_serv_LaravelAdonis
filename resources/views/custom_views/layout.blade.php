@@ -9,7 +9,6 @@
     <title>Testing</title>
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     <link rel="stylesheet" href="{{mix('css/ui.css')}}">
-    <link rel="stylesheet" href="{{mix('css/sweetalert2.css')}}">
 </head>
 <body>
 <div class="wrapper ">
@@ -33,12 +32,58 @@
 
         <div class="sidebar-wrapper ps" id="sidebar-wrapper">
             <ul class="nav" id="opcionesSidebar">
+
                 <li class="" id="liHome">
                     <a href="/home">
 
                         {{--                        <i class="now-ui-icons design_app"></i>--}}
 
                         <p>home</p>
+                    </a>
+                </li>
+
+                <li class="" id="liProtocols">
+                    <a href="/shodan/protocols">
+
+                        {{--                        <i class="now-ui-icons design_app"></i>--}}
+
+                        <p>Protocols</p>
+                    </a>
+                </li>
+
+                <li class="" id="liPorts">
+                    <a href="/shodan/ports">
+
+                        {{--                        <i class="now-ui-icons design_app"></i>--}}
+
+                        <p>Ports</p>
+                    </a>
+                </li>
+
+                <li class="" id="liFacets">
+                    <a href="/shodan/facets">
+
+                        {{--                        <i class="now-ui-icons design_app"></i>--}}
+
+                        <p>facets</p>
+                    </a>
+                </li>
+
+                <li class="" id="liTriggers">
+                    <a href="/shodan/triggers">
+
+                        {{--                        <i class="now-ui-icons design_app"></i>--}}
+
+                        <p>triggers</p>
+                    </a>
+                </li>
+
+                <li class="" id="liIp">
+                    <a href="/shodan/ip">
+
+                        {{--                        <i class="now-ui-icons design_app"></i>--}}
+
+                        <p>ip</p>
                     </a>
                 </li>
 
@@ -130,5 +175,4 @@
 
 <script src="{{mix('js/app.js')}}"></script>
 <script src="{{mix('js/ui.js')}}"></script>
-<script src="{{mix('js/sweetalert2.js')}}"></script>
-<script src="js/highlightButtons.js"></script>
+<script src="/js/highlightButtons.js"></script>

@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        Peticion protocols
+                        Peticion ports
                     </div>
                     <div class="card-body">
                         <input type="button" class="btn bg-primary" value="ENVIAR PETICION" v-on:click="peticion">
@@ -38,7 +38,7 @@
                 let self = this;
                 this.respuesta = null;
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.laravel_token;
-                axios.get('/api/shodan/protocols').then(function (response) {
+                axios.get('/api/shodan/ports').then(function (response) {
                     console.log(response.data);
                     self.respuesta = response.data;
                 }).catch(function (response) {

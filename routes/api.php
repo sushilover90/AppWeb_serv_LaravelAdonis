@@ -18,3 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/shodan/protocols','HttpRequests@Protocols')->middleware('auth:api');
+Route::get('/shodan/ports','HttpRequests@ports')->middleware('auth:api');
+Route::get('/shodan/facets','HttpRequests@facets')->middleware('auth:api');
+Route::get('/shodan/ip','HttpRequests@ip')->middleware('auth:api');
+Route::get('/shodan/triggers','HttpRequests@triggers')->middleware('auth:api');

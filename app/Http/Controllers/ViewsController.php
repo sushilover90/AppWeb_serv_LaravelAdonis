@@ -23,4 +23,24 @@ class ViewsController extends Controller
         return view('custom_views/protocols');
     }
 
+    public function ports()
+    {
+        return view('custom_views/ports');
+    }
+
+    public function ip()
+    {
+        return view('custom_views/ip');
+    }
+
+    public function facets()
+    {
+        return view('custom_views/facets');
+    }
+
+    public function triggers()
+    {
+        return view('custom_views/triggers');
+    }
+
 }
