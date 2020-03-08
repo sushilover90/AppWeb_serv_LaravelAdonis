@@ -12,7 +12,6 @@ class HttpRequests extends Controller
     public function adonisCreateUser(Request $request)
     {
 
-
         $client = new Client(['base_url'=>'http://localhost:3333','timeout' => 10.0,
             'verify' => false]);
         try {
@@ -29,7 +28,7 @@ class HttpRequests extends Controller
         }
         catch (RequestException $e)
         {
-            return response()->json(['message'=>'Error','error'=>$e],401);
+            return response()->json(['message'=>'Error','error'=>$e],400);
         }
 
     }
@@ -55,7 +54,7 @@ class HttpRequests extends Controller
         }
         catch (RequestException $e)
         {
-            return response()->json(['message'=>'Error','error'=>$e],401);
+            return response()->json(['message'=>'Error','error'=>$e],400);
         }
     }
 
@@ -81,7 +80,7 @@ class HttpRequests extends Controller
         }
         catch (RequestException $e)
         {
-            return response()->json(['message'=>'Error','error'=>$e],401);
+            return response()->json(['message'=>'Error','error'=>$e],400);
         }
     }
 
@@ -107,7 +106,7 @@ class HttpRequests extends Controller
         }
         catch (RequestException $e)
         {
-            return response()->json(['message'=>'Error','error'=>$e],401);
+            return response()->json(['message'=>'Error','error'=>$e],400);
         }
     }
 
