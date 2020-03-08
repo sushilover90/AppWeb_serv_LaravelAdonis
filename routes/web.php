@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/home','ViewsController@index')->middleware('auth');
 Route::get('/',function (){
    return redirect('/login');
 });
@@ -26,21 +25,11 @@ Route::post('/token/shodan/set','Usercontroller@setShodanToken')->middleware('au
 Route::get('/token/adonis/get','Usercontroller@getAdonisTokens')->middleware('auth');
 Route::post('/token/adonis/set','Usercontroller@setAdonisTokens')->middleware('auth');
 
-Route::get('/user/adonis/register','ViewsController@adonisUserRegister')->middleware('auth');
-
+Route::get('/home','ViewsController@index')->middleware('auth');
 Route::get('/shodan/protocols','ViewsController@protocols')->middleware('auth');
 Route::get('/shodan/ports','ViewsController@ports')->middleware('auth');
 Route::get('/shodan/triggers','ViewsController@triggers')->middleware('auth');
 Route::get('/shodan/facets','ViewsController@facets')->middleware('auth');
 Route::get('/shodan/ip','ViewsController@ip')->middleware('auth');
 
-Route::post('/user/adonis/register/request','HttpRequests@adonisCreateUser')->middleware('auth');
-
-
-/*Route::get('/',function (){
-   return redirect('/home');
-});*/
-
 Auth::routes();
-
-/*Route::get('/home', 'HomeController@index')->name('home');*/

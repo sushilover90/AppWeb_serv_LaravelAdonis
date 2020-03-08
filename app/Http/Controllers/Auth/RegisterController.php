@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\HttpRequests;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -50,8 +52,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => ['required', 'string', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:1', 'confirmed'],
         ]);
     }
 
@@ -68,5 +70,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
     }
+
+    protected function registered()
+    {
+        Auth::user()->setLaravelToken();
+        $tokens_adonis = HttpRequests::adonisCreateUser(Auth::user()->name,Auth::user()->password)->getData(true);
+        Auth::user()->setAdonisTokens($tokens_adonis['adonis_response']['token'],$tokens_adonis['adonis_response']['refreshToken']);
+    }
+
 }
